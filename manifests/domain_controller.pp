@@ -43,10 +43,6 @@ class active_directory::domain_controller (
   Optional[Hash] $ad_users                    = {},
 ) {
 
-  if !($facts['os']['family'] == 'windows' and $facts['os']['release']['major'] =~ /2012 R2|2016/) {
-    fail("This class is for Windows 2012 R2 and 2016, not ${facts['os']['family']} and ${facts['os']['release']['major']}")
-  }
-
   require active_directory::rsat_ad
 
   $domain_credentials = {
