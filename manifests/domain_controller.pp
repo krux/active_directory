@@ -58,7 +58,7 @@ class active_directory::domain_controller (
   if $parent_domain_name {
 
     if $facts['domain'] == $domain_name {
-      $dns_array = ['127.0.0.1',$parent_dns_addr]
+      $dns_array = ['127.0.0.1'] + $parent_dns_addr
     } else {
       $dns_array = $parent_dns_addr
     }
